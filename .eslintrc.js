@@ -1,3 +1,5 @@
+const isProd = process.env.NODE_ENV === 'production'
+
 module.exports = {
   root: true,
   env: {
@@ -14,5 +16,10 @@ module.exports = {
   plugins: [
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+    curly: ['error', 'multi-line'],
+    'no-unused-vars': isProd ? ['error'] : ['warn'],
+    'vue/no-v-html': 0,
+    'arrow-parens': ['error', 'as-needed']
+  }
 }

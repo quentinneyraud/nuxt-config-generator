@@ -1,14 +1,21 @@
 <template>
   <div class="Switcher-component">
+    <!-- Heading -->
+    <InputHeading v-bind="heading" />
+
+    <!-- Input -->
     <div class="Switcher-options">
-      <div
+      <button
         v-for="(option, optionIndex) in options"
         :key="optionIndex"
         class="Switcher-option"
-        @click="currentOption = option.value"
+        :class="{
+          active: activeOptionValue === option.value
+        }"
+        @click="$emit('change', option)"
       >
         <span>{{ option.text }}</span>
-      </div>
+      </button>
     </div>
   </div>
 </template>
@@ -16,21 +23,18 @@
 <script>
 export default {
   props: {
+    heading: {
+      type: Object,
+      required: true
+    },
     options: {
       type: Array,
       required: true
-    }
-  },
-  data () {
-    return {
-      currentOption: this.options?.[0]?.value
-    }
-  },
-  watch: {
-    currentOption (currentOption) {
-      this.$emit('change', {
-        option: currentOption
-      })
+    },
+    activeOptionValue: {
+      type: [Boolean, String],
+      required: false,
+      default: null
     }
   }
 }
@@ -52,6 +56,13 @@ export default {
   min-width 100px
   flex-parent-center()
 
+  &:nth-child(n + 2)
+    border-left 2px solid #000
+
   span
     color white
+
+  &.active
+    background-color green
+    no-interaction()
 </style>

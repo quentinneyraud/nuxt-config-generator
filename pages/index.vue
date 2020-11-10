@@ -1,13 +1,13 @@
 <template>
   <div class="Home-page">
-    <h1>Nuxt configuration helper</h1>
+    <!-- Configuration form -->
+    <section class="Home-configurationForm">
+      <div class="l-container">
+        <h1>Nuxt configuration helper</h1>
+      </div>
 
-    <Switcher
-      :options="[{
-        text: 'ok',
-        value: 'ok'
-      }]"
-    />
+      <ConfigurationForm />
+    </section>
   </div>
 </template>
 

@@ -1,0 +1,21 @@
+@import '../variables.styl'
+@import '../q-stylus-override.styl'
+@import '~@qneyraud/q-stylus/src/reset/index.styl'
+@import '~@qneyraud/q-stylus/src/grid/index.styl'
+
+
+body
+  min-height 100vh
+  width 100%
+  background-color primary-color
+
+  &.cursor-wait
+    cursor wait
+
+    *
+      cursor wait
+
+html
+  ::selection
+    background-color secondary-color
+    color primary-color

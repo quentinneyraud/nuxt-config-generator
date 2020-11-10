@@ -1,42 +1,73 @@
-export default {
-  // Target (https://go.nuxtjs.dev/config-target)
-  target: 'static',
+const isProduction = process.env.NODE_ENV === 'production'
 
-  // Global page headers (https://go.nuxtjs.dev/config-head)
+export default {
+  /*
+  ** Nuxt target
+  ** See https://nuxtjs.org/api/configuration-target
+  */
+  target: 'static',
+  /*
+  ** Headers of the page
+  ** See https://nuxtjs.org/api/configuration-head
+  */
+  server: {
+    port: 3000,
+    host: '0.0.0.0'
+  },
   head: {
-    title: 'nuxt-config',
+    title: 'Pleio',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'A completer' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
-  // Global CSS (https://go.nuxtjs.dev/config-css)
+  loading: false,
+  /*
+  ** Global CSS
+  */
   css: [
+    '~assets/styles/global/index.styl'
   ],
-
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [
-  ],
-
-  // Auto import components (https://go.nuxtjs.dev/config-components)
+  /*
+  ** Plugins to load before mounting the App
+  ** https://nuxtjs.org/guide/plugins
+  */
+  plugins: [],
+  /*
+  ** Auto import components
+  ** See https://nuxtjs.org/api/configuration-components
+  */
   components: true,
-
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+  /*
+  ** Nuxt.js dev-modules
+  */
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/svg'
   ],
-
-  // Modules (https://go.nuxtjs.dev/config-modules)
+  /*
+  ** Nuxt.js modules
+  */
   modules: [
+    '@nuxtjs/style-resources'
   ],
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  /*
+  ** Build configuration
+  ** See https://nuxtjs.org/api/configuration-build/
+  */
   build: {
+    extractCSS: isProduction
+  },
+  /*
+  ** Styles resources module
+  */
+  styleResources: {
+    stylus: [
+      '~assets/styles/shared/index.styl'
+    ]
   }
 }
