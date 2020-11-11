@@ -15,5 +15,8 @@
 export default {}
 </script>
 
-<style>
+<style lang="stylus" scoped>
+h1
+  font(source, 55, auto, fw-bold)
+  margin-top 1em
 </style>

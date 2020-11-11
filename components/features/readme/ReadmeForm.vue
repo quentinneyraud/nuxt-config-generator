@@ -19,6 +19,14 @@
         :active-option-value="features.removeReadmeFiles"
         @change="({value}) => $store.commit('setReadme', { isActive: value })"
       />
+
+      <RadioButton
+        :heading="{
+          title: 'Supprimer les fichiers README.md',
+          description: 'Va supprimer les fichiers README.md'
+        }"
+        :active-option-value="true"
+      />
     </FeatureTemplate>
   </div>
 </template>

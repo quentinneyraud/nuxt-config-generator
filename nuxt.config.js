@@ -47,7 +47,8 @@ export default {
   */
   buildModules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/svg'
+    '@nuxtjs/svg',
+    '@nuxtjs/google-fonts'
   ],
   /*
   ** Nuxt.js modules
@@ -69,5 +70,11 @@ export default {
     stylus: [
       '~assets/styles/shared/index.styl'
     ]
+  },
+  googleFonts: {
+    families: {
+      SourceSansPro: [100, 300, 800]
+    },
+    display: 'swap'
   }
 }
